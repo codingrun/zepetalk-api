@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
+    "firebase": "^7.23.0",
     "next": "latest",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

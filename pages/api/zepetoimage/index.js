@@ -1,11 +1,10 @@
-import axios from "axios";
-export default async function sendHandler(req, res) {
+export default async function zepetoimageHandler(req, res) {
   const {
-    query: { id, text },
+    query: { id },
     method,
   } = req;
 
-  const getSetimental = async (requestText) => {
+  const getSentimental = async (requestText) => {
     try {
       const sentimentalReqData = {
         document: {
@@ -34,8 +33,9 @@ export default async function sendHandler(req, res) {
     case "POST":
       // Update or create data in your database
       try {
-        const resSentimental = await getSetimental(req.body.text);
+        const resSentimental = await getSentimental(req.body.text);
         console.log("resSentimental = ", resSentimental);
+        //지정된 이미지 url가져오기
         res.status(200).json(resSentimental);
       } catch (error) {
         console.log("error = ", error);
