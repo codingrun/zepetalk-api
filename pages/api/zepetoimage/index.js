@@ -31,12 +31,12 @@ export default async function zepetoimageHandler(req, res) {
   const getImageType = (score) => {
     if (score < 0) {
       return "negative";
-    }
-    if (score === 0) {
+    } else if (score === 0) {
       return "neutrality";
-    }
-    if (score === 0) {
+    } else if (score > 0) {
       return "positive";
+    } else {
+      return "neutrality";
     }
   };
   switch (method) {
