@@ -1,4 +1,4 @@
-import axios from "axios";
+import ChatMessage from "../../../lib/chatMessageStore";
 
 export default async function chatmessageHandler(req, res) {
   const {
@@ -14,9 +14,9 @@ export default async function chatmessageHandler(req, res) {
     case "POST":
       // Update or create data in your database
       try {
-        const { text, url, id } = req.body;
-        //채팅 내용, 선택한 제페토 image저장
-        res.status(200).json({ text, url, id });
+        const { text, image, user } = req.body;
+        await ChatMessage.writeChatMessage({ text, image, user });
+        res.status(200).json({ text, image, user });
       } catch (error) {
         console.log("error = ", error);
         res.status(500).json({ message: error });

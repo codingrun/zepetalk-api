@@ -31,8 +31,6 @@ export default async function zepetoimageHandler(req, res) {
   const getImageType = (score) => {
     if (score < 0) {
       return "negative";
-    } else if (score === 0) {
-      return "neutrality";
     } else if (score > 0) {
       return "positive";
     } else {
