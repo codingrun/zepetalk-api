@@ -12,8 +12,9 @@ export default async function usermessageHandler(req, res) {
       res.status(200).json({ id, name: `User ${id}` });
       break;
     case "POST":
-      // Update or create data in your database
       try {
+        const { user, target } = req.body;
+        const result = await UserStore.getUserData(user);
         const result = await UserStore.writeUserData();
         //채팅 내용, 선택한 제페토 image저장
         res.status(200).json({ message: "user success" });
