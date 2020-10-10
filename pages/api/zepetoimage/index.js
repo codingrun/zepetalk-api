@@ -38,17 +38,11 @@ export default async function zepetoimageHandler(req, res) {
     }
   };
   switch (method) {
-    case "GET":
-      // Get data from your database
-      res.status(200).json({ id, name: `User ${id}` });
-      break;
     case "PUT":
-      // Get data from your database
       ZepetoImageStore.writeImageData();
       res.status(200).json({ id, name: `User ${id}` });
       break;
     case "POST":
-      // Update or create data in your database
       try {
         const resSentimental = await getSentimental(req.body.text);
         const imageType = getImageType(resSentimental.documentSentiment.score);
