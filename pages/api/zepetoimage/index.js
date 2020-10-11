@@ -2,10 +2,7 @@ import ZepetoImageStore from "../../../lib/zepetoimageStore";
 import axios from "axios";
 
 export default async function zepetoimageHandler(req, res) {
-  const {
-    query: { id },
-    method,
-  } = req;
+  const { method } = req;
 
   const getSentimental = async (requestText) => {
     try {
@@ -40,7 +37,7 @@ export default async function zepetoimageHandler(req, res) {
   switch (method) {
     case "PUT":
       ZepetoImageStore.writeImageData();
-      res.status(200).json({ id, name: `User ${id}` });
+      res.status(200).json({ message: "image url data upload success!" });
       break;
     case "POST":
       try {

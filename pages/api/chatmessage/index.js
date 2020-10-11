@@ -3,10 +3,7 @@ import ZepetoImageStore from "../../../lib/zepetoimageStore";
 import axios from "axios";
 
 export default async function chatmessageHandler(req, res) {
-  const {
-    query: { id, text },
-    method,
-  } = req;
+  const { method } = req;
 
   const getSentimental = async (requestText) => {
     try {
@@ -40,10 +37,6 @@ export default async function chatmessageHandler(req, res) {
   };
 
   switch (method) {
-    case "GET":
-      // Get data from your database
-      res.status(200).json({ id, name: `User ${id}` });
-      break;
     case "POST":
       // Update or create data in your database
       try {

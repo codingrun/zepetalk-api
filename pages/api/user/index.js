@@ -1,16 +1,9 @@
 import UserStore from "../../../lib/userStore";
 
 export default async function usermessageHandler(req, res) {
-  const {
-    query: { id, text },
-    method,
-  } = req;
+  const { method } = req;
 
   switch (method) {
-    case "GET":
-      // Get data from your database
-      res.status(200).json({ id, name: `User ${id}` });
-      break;
     case "POST":
       try {
         const { user, target } = req.body;
